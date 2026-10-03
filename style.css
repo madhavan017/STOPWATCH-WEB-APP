@@ -1,0 +1,891 @@
+/* =====================================================
+   BASIC RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #1d2638 0%,
+            #0b0f17 45%,
+            #070a10 100%
+        );
+
+    color: #ffffff;
+
+    min-height: 100vh;
+
+}
+
+
+/* =====================================================
+   NAVIGATION BAR
+===================================================== */
+
+.navbar {
+
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    border-bottom: 1px solid
+        rgba(255, 255, 255, 0.08);
+
+    background:
+        rgba(7, 10, 16, 0.88);
+
+    backdrop-filter: blur(12px);
+
+    /* Keep navbar at the top */
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+}
+
+
+/* =====================================================
+   SMOOTH NAVIGATION
+===================================================== */
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+/* Prevent sections from hiding behind navbar */
+
+section {
+
+    scroll-margin-top: 90px;
+
+}
+/* Logo */
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* Logo Icon */
+
+.logo-icon {
+
+    font-size: 24px;
+
+}
+
+
+/* Navigation Links */
+
+.navbar nav {
+
+    display: flex;
+
+    gap: 30px;
+
+}
+
+
+.navbar nav a {
+
+    color: #aab3c5;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+
+}
+
+
+.navbar nav a:hover {
+
+    color: white;
+
+}
+
+
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
+
+.container {
+
+    width: min(1100px, 90%);
+
+    margin: auto;
+
+}
+
+
+/* =====================================================
+   STOPWATCH SECTION
+===================================================== */
+
+.stopwatch-section {
+
+    text-align: center;
+
+    padding: 145px 20px 65px;
+
+}
+
+
+/* Subtitle */
+
+.subtitle {
+
+    color: #8e99ad;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    font-weight: 600;
+
+    margin-bottom: 18px;
+
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 7px 14px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255, 255, 255, 0.06);
+
+    color: #9da8bb;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* Status Dot */
+
+.status-dot {
+
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #7c8799;
+
+}
+
+
+/* Running state */
+
+.status.running .status-dot {
+
+    background: #36d98b;
+
+    box-shadow:
+        0 0 10px #36d98b;
+
+    animation: pulse 1.2s infinite;
+
+}
+
+
+/* Paused state */
+
+.status.paused .status-dot {
+
+    background: #f0ad4e;
+
+}
+
+
+/* Pulse Animation */
+
+@keyframes pulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+/* =====================================================
+   TIMER DISPLAY
+===================================================== */
+
+#display {
+
+    margin: 35px 0;
+
+    font-size:
+        clamp(48px, 8vw, 92px);
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    font-variant-numeric:
+        tabular-nums;
+
+    text-shadow:
+        0 0 30px
+        rgba(255, 255, 255, 0.08);
+
+}
+
+
+/* =====================================================
+   START BUTTON
+===================================================== */
+
+.start-button {
+
+    border: none;
+
+    cursor: pointer;
+
+    width: 250px;
+
+    height: 58px;
+
+    border-radius: 13px;
+
+    background: white;
+
+    color: #0b0f17;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+
+}
+
+
+.start-button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(255, 255, 255, 0.12);
+
+}
+
+
+.start-button:active {
+
+    transform: scale(0.98);
+
+}
+/* =====================================================
+   SECONDARY BUTTONS
+===================================================== */
+
+.secondary-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-top: 18px;
+
+}
+
+
+.secondary-button {
+
+    width: 145px;
+
+    height: 52px;
+
+    border-radius: 12px;
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.12);
+
+    background:
+        rgba(255, 255, 255, 0.06);
+
+    color: #d8deea;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    transition:
+        transform 0.2s,
+        background 0.2s,
+        border-color 0.2s;
+
+}
+
+
+.secondary-button:hover {
+
+    transform: translateY(-2px);
+
+    background:
+        rgba(255, 255, 255, 0.1);
+
+    border-color:
+        rgba(255, 255, 255, 0.22);
+
+}
+
+
+.secondary-button:active {
+
+    transform: scale(0.97);
+
+}
+
+
+.secondary-button:disabled {
+
+    opacity: 0.4;
+
+    cursor: not-allowed;
+
+}
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+.dashboard {
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr 1fr;
+
+    gap: 20px;
+
+    padding-bottom: 50px;
+
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.card {
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+/* =====================================================
+   CARD HEADER
+===================================================== */
+
+.card-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 24px;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+}
+
+
+.card-label {
+
+    color: #7f8ba0;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.card-header h2 {
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+}
+
+
+/* Lap count */
+
+#lap-count {
+
+    color: #929db0;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =====================================================
+   LAP TABLE
+===================================================== */
+
+.lap-table {
+
+    padding: 10px 24px 20px;
+
+}
+
+
+.table-header {
+
+    display: grid;
+
+    grid-template-columns:
+        0.5fr 1fr 1fr;
+
+    padding: 12px 0;
+
+    color: #687489;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+}
+
+
+#laps {
+
+    max-height: 300px;
+
+    overflow-y: auto;
+
+}
+
+
+/* Lap Row */
+
+.lap-row {
+
+    display: grid;
+
+    grid-template-columns:
+        0.5fr 1fr 1fr;
+
+    padding: 14px 0;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.06);
+
+    font-size: 14px;
+
+}
+
+
+/* Lap number */
+
+.lap-number {
+
+    color: #aeb8c8;
+
+    font-weight: 600;
+
+}
+
+
+/* Total */
+
+.lap-total {
+
+    color: white;
+
+    font-weight: 600;
+
+}
+
+
+/* Duration */
+
+.lap-duration {
+
+    color: #8f9bad;
+
+}
+
+
+/* Empty State */
+
+.empty-state {
+
+    padding: 35px 0;
+
+    text-align: center;
+
+    color: #657084;
+
+    font-size: 13px;
+
+}
+
+
+/* =====================================================
+   STATISTICS
+===================================================== */
+
+.statistics {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+}
+
+
+.stat {
+
+    padding: 25px;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+}
+
+
+.stat:nth-child(odd) {
+
+    border-right:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+}
+
+
+.stat span {
+
+    display: block;
+
+    color: #7e899c;
+
+    font-size: 12px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.stat strong {
+
+    font-size: 19px;
+
+    font-weight: 600;
+
+    font-variant-numeric:
+        tabular-nums;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 25px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+    color: #717c8f;
+
+    font-size: 12px;
+
+}
+
+
+footer div {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+}
+
+
+footer span {
+
+    padding: 5px 8px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    border-radius: 5px;
+
+    color: #b9c2d0;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+}
+
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+#laps::-webkit-scrollbar {
+
+    width: 5px;
+
+}
+
+
+#laps::-webkit-scrollbar-thumb {
+
+    background: #3b4352;
+
+    border-radius: 10px;
+
+}
+
+
+/* =====================================================
+   MOBILE RESPONSIVE
+===================================================== */
+
+@media (max-width: 750px) {
+
+
+    .navbar {
+
+        padding: 0 5%;
+
+    }
+
+
+    .navbar nav {
+
+        display: none;
+
+    }
+
+
+    .stopwatch-section {
+
+        padding-top: 55px;
+
+    }
+
+
+    .dashboard {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    #display {
+
+        letter-spacing: 1px;
+
+    }
+
+
+    .card-header {
+
+        padding: 20px;
+
+    }
+
+
+    .lap-table {
+
+        padding-left: 20px;
+
+        padding-right: 20px;
+
+    }
+
+
+    footer {
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 420px) {
+
+
+    .secondary-buttons {
+
+        flex-direction: column;
+
+        align-items: center;
+
+    }
+
+
+    .secondary-button {
+
+        width: 210px;
+
+    }
+
+
+    .statistics {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .stat:nth-child(odd) {
+
+        border-right: none;
+
+    }
+
+
+    #display {
+
+        font-size: 43px;
+
+    }
+
+}

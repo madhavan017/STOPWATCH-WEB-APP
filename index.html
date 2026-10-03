@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Precision Stopwatch</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <!-- ================= NAVIGATION BAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <span class="logo-icon">◉</span>
+            STOPWATCH
+        </div>
+
+        <nav>
+            <a href="#stopwatch">Stopwatch</a>
+            <a href="#history">History</a>
+            <a href="#shortcuts">Shortcuts</a>
+        </nav>
+
+    </header>
+
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="container">
+
+
+        <!-- ================= STOPWATCH ================= -->
+
+        <section class="stopwatch-section" id="stopwatch">
+
+            <p class="subtitle">
+                PRECISION STOPWATCH
+            </p>
+
+
+            <!-- Status -->
+
+            <div class="status" id="status">
+
+                <span class="status-dot"></span>
+
+                <span id="status-text">
+                    READY
+                </span>
+
+            </div>
+
+
+            <!-- Timer Display -->
+
+            <div id="display">
+                00:00:00.00
+            </div>
+
+
+            <!-- Start / Pause / Resume -->
+
+            <button
+                id="start"
+                class="start-button">
+                START
+            </button>
+
+
+            <!-- Lap and Reset -->
+
+            <div class="secondary-buttons">
+
+                <button
+                    id="lap"
+                    class="secondary-button">
+                    LAP
+                </button>
+
+
+                <button
+                    id="reset"
+                    class="secondary-button">
+                    RESET
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= DASHBOARD ================= -->
+
+        <section class="dashboard">
+
+
+            <!-- ================= LAP HISTORY ================= -->
+
+            <div
+                class="card"
+                id="history">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <p class="card-label">
+                            ACTIVITY
+                        </p>
+
+                        <h2>
+                            Lap History
+                        </h2>
+
+                    </div>
+
+
+                    <span id="lap-count">
+                        0 LAPS
+                    </span>
+
+                </div>
+
+
+                <!-- Table -->
+
+                <div class="lap-table">
+
+
+                    <!-- Table Header -->
+
+                    <div class="table-header">
+
+                        <span>
+                            LAP
+                        </span>
+
+                        <span>
+                            TOTAL
+                        </span>
+
+                        <span>
+                            DURATION
+                        </span>
+
+                    </div>
+
+
+                    <!-- Lap Records -->
+
+                    <div id="laps">
+
+                        <div class="empty-state">
+                            No laps recorded yet
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= SESSION SUMMARY ================= -->
+
+            <div class="card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <p class="card-label">
+                            OVERVIEW
+                        </p>
+
+                        <h2>
+                            Session Summary
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Statistics -->
+
+                <div class="statistics">
+
+
+                    <!-- Total Time -->
+
+                    <div class="stat">
+
+                        <span>
+                            Total Time
+                        </span>
+
+                        <strong id="total-time">
+                            00:00:00
+                        </strong>
+
+                    </div>
+
+
+                    <!-- Number of Laps -->
+
+                    <div class="stat">
+
+                        <span>
+                            Laps
+                        </span>
+
+                        <strong id="total-laps">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <!-- Fastest Lap -->
+
+                    <div class="stat">
+
+                        <span>
+                            Fastest Lap
+                        </span>
+
+                        <strong id="fastest-lap">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <!-- Average Lap -->
+
+                    <div class="stat">
+
+                        <span>
+                            Average Lap
+                        </span>
+
+                        <strong id="average-lap">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer id="shortcuts">
+
+        <div>
+
+            <span>
+                SPACE
+            </span>
+
+            Start / Pause
+
+        </div>
+
+
+        <div>
+
+            <span>
+                L
+            </span>
+
+            Lap
+
+        </div>
+
+
+        <div>
+
+            <span>
+                R
+            </span>
+
+            Reset
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
